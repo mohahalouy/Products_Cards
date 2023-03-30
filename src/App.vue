@@ -1,5 +1,10 @@
 <template>
-  <HomeCard></HomeCard>
+  <Suspense>
+    <HomeCard></HomeCard>
+    <template #fallback>
+      Loading
+    </template>
+  </Suspense>
 </template>
 
 <script setup>

@@ -7,7 +7,7 @@
 <script>
 import {ref} from "vue";
 import PostAPI from "../services/PostAPI";
-import PostCard from "./PostCard.vue";
+import PostCard from "./ProductCard.vue";
 
 export default {
   name: "PostCardWrapper",
@@ -36,10 +36,12 @@ export default {
 <style scoped>
 .productCardContainer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
-  width: 100%;
-  justify-content: center;
   gap: 20px;
 }
+
+
 </style>

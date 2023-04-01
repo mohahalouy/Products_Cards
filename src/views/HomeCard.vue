@@ -1,11 +1,13 @@
 <template>
-  <FilterCategories></FilterCategories>
-  <PostCardWrapper></PostCardWrapper>
+  <section class="homeCard">
+    <FilterCategories></FilterCategories>
+    <PostCardWrapper></PostCardWrapper>
+  </section>
 </template>
 
 <script>
 
-import PostCardWrapper from "../components/PostCardWrapper.vue";
+import PostCardWrapper from "../components/ProductCardWrapper.vue";
 import FilterCategories from "../components/FilterCategories.vue";
 
 export default {
@@ -15,4 +17,21 @@ export default {
 </script>
 
 <style scoped>
+@import "https://fonts.googleapis.com/css?family=Poppins:200,300.400,500,600,700,800,900&display=swap";
+
+@font-face {
+  font-family: Poppins;
+  src: url("https://fonts.googleapis.com/css?family=Poppins:200,300.400,500,600,700,800,900&display=swap");
+}
+
+.homeCard {
+  font-family: Poppins;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  grid-template-areas:
+    "filterInput"
+    "Card";
+}
 </style>

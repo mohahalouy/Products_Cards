@@ -1,18 +1,21 @@
 <template>
   <section class="productCardContainer">
-    <PostCard v-for="(product, index) in products" :key="index" :product="product" :index="index"></PostCard>
+    <PostCard v-for="(product, index) in filteredProducts" :key="index" :product="product" :index="index"></PostCard>
   </section>
 </template>
 
 <script>
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import PostAPI from "../services/PostAPI";
 import PostCard from "./ProductCard.vue";
 
 export default {
   name: "PostCardWrapper",
   components: {PostCard},
-  async setup() {
+  props: {
+    filterContentSelect: String
+  },
+  async setup(props) {
     const products = ref([])
     const loadProducts = async () => {
       try {
@@ -25,9 +28,20 @@ export default {
 
     await loadProducts()
 
+    const filteredProducts = computed(() => {
+      if (props.filterContentSelect === "") {
+        return products.value;
+      }
+      const query = props.filterContentSelect.toLowerCase();
+      return products.value.filter(product => {
+        return product.category.toLowerCase().includes(query)
+      });
+    });
+
 
     return {
       products,
+      filteredProducts
     }
   },
 }

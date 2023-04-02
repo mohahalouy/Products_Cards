@@ -1,7 +1,7 @@
 <template>
   <section class="homeCard">
-    <FilterCategories></FilterCategories>
-    <PostCardWrapper></PostCardWrapper>
+    <FilterCategories v-model:filterContentSelect="filterContentSelect" ></FilterCategories>
+    <PostCardWrapper :filterContentSelect="filterContentSelect"></PostCardWrapper>
   </section>
 </template>
 
@@ -13,10 +13,15 @@ import FilterCategories from "../components/FilterCategories.vue";
 export default {
   name: "HomeCard",
   components: {FilterCategories, PostCardWrapper},
+  data() {
+    return {
+      filterContentSelect: ''
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style>
 @import "https://fonts.googleapis.com/css?family=Poppins:200,300.400,500,600,700,800,900&display=swap";
 
 @font-face {
@@ -25,7 +30,7 @@ export default {
 }
 
 .homeCard {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;

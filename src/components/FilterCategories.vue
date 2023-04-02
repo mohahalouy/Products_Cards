@@ -1,14 +1,14 @@
 <template>
   <section class="filterContainer">
-    <p>Filtrar por categoria: &nbsp;</p>
+    <p>Filtrar por categoría: &nbsp;</p>
     <div class="select" tabindex="1">
       <input class="selectopt" name="test" type="radio" id="opt1"
              @change="changeCategory" checked>
       <label for="opt1" class="option"></label>
       <template v-for="(category,index) in categories">
-        <input class="selectopt" name="test" type="radio" :id="index"
+        <input class="selectopt" name="test" type="radio" :id="`opt${index+2}`"
                @change="changeCategory(index)">
-        <label :for="index" class="option">{{ category }}</label>
+        <label :for="`opt${index+2}`" class="option">{{ category }}</label>
       </template>
     </div>
   </section>
@@ -23,7 +23,7 @@ export default {
   props: {
     filterContentSelect: String
   },
-  async setup(props, { emit }){
+  async setup(props, {emit}) {
     const categories = ref([])
     const loadCategories = async () => {
       try {

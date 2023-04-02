@@ -1,11 +1,12 @@
 <template>
   <section class="productCardContainer">
-    <PostCard v-for="(product, index) in filteredProducts" :key="index" :product="product" :index="index"></PostCard>
+    <PostCard v-for="(product, index) in filteredProducts" :key="product.id" :product="product" :index="index"
+              data-aos="fade-up"></PostCard>
   </section>
 </template>
 
 <script>
-import {computed, ref} from "vue";
+import {ref, computed} from "vue";
 import PostAPI from "../services/PostAPI";
 import PostCard from "./ProductCard.vue";
 
@@ -19,17 +20,17 @@ export default {
     const products = ref([])
     const loadProducts = async () => {
       try {
-        const response = await PostAPI.getProducts()
-        products.value = response.data
+        const response = await PostAPI.getProducts();
+        products.value = response.data;
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
+    };
 
     await loadProducts()
 
     const filteredProducts = computed(() => {
-      if (props.filterContentSelect === "") {
+      if (!props.filterContentSelect) {
         return products.value;
       }
       const query = props.filterContentSelect.toLowerCase();
@@ -40,7 +41,6 @@ export default {
 
 
     return {
-      products,
       filteredProducts
     }
   },

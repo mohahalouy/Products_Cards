@@ -1,6 +1,6 @@
 <template>
   <section class="homeCard">
-    <FilterCategories v-model:filterContentSelect="filterContentSelect" ></FilterCategories>
+    <FilterCategories v-model:filterContentSelect="filterContentSelect"></FilterCategories>
     <PostCardWrapper :filterContentSelect="filterContentSelect"></PostCardWrapper>
   </section>
 </template>
@@ -9,16 +9,19 @@
 
 import PostCardWrapper from "../components/ProductCardWrapper.vue";
 import FilterCategories from "../components/FilterCategories.vue";
+import {ref} from "vue";
 
 export default {
   name: "HomeCard",
   components: {FilterCategories, PostCardWrapper},
-  data() {
+  setup() {
+    const filterContentSelect = ref("");
+
     return {
-      filterContentSelect: ''
-    }
-  }
-}
+      filterContentSelect,
+    };
+  },
+};
 </script>
 
 <style>

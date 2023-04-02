@@ -12,7 +12,7 @@ export default {
 .line-wobble {
   --uib-size: 80px;
   --uib-speed: 1.75s;
-  --uib-color: white;
+  --uib-color: black;
   --uib-line-weight: 5px;
 
   position: relative;

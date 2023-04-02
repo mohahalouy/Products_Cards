@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {ref, computed} from "vue";
+import {ref, computed, inject} from "vue";
 import PostAPI from "../services/PostAPI";
 import PostCard from "./ProductCard.vue";
 
@@ -18,12 +18,23 @@ export default {
   },
   async setup(props) {
     const products = ref([])
+    const swal = inject('$swal')
+
+    const swalError = (err) => {
+      swal({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ha ocurrido un error, inténtelo más tarde'
+      })
+    }
+
+
     const loadProducts = async () => {
       try {
         const response = await PostAPI.getProducts();
         products.value = response.data;
       } catch (err) {
-        console.log(err);
+        swalError(err)
       }
     };
 

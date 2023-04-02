@@ -115,4 +115,11 @@ export default {
   color: #f60;
   margin-bottom: 20px;
 }
+
+@media (max-width: 400px) {
+  .product-card {
+    width: 220px;
+    height: 500px;
+  }
+}
 </style>

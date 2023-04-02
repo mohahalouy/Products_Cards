@@ -54,6 +54,8 @@ export default {
 .filterContainer {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   color: black;
   font-weight: bold;
 }

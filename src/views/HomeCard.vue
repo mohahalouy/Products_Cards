@@ -1,7 +1,7 @@
 <template>
   <section class="homeCard">
-    <FilterCategories v-model:filterContentSelect="filterContentSelect"></FilterCategories>
-    <PostCardWrapper :filterContentSelect="filterContentSelect"></PostCardWrapper>
+    <FilterCategories class="filterContainer" v-model:filterContentSelect="filterContentSelect"></FilterCategories>
+    <PostCardWrapper class="productCardContainer" :filterContentSelect="filterContentSelect"></PostCardWrapper>
   </section>
 </template>
 
@@ -39,7 +39,15 @@ export default {
   grid-template-rows: auto;
   justify-items: center;
   grid-template-areas:
-    "filterInput"
-    "Card";
+    "Filter"
+    "Product";
+}
+
+.filterContainer{
+  grid-area: Filter;
+}
+
+.productCardContainer{
+  grid-area: Product;
 }
 </style>

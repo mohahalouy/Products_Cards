@@ -1,5 +1,4 @@
 <template>
-  <p style="color: #222222">{{filterContentSelect}}</p>
   <section class="homeCard">
     <FilterCategories class="filterContainer" v-model:filterContentSelect="filterContentSelect"></FilterCategories>
     <PostCardWrapper class="productCardContainer" :filterContentSelect="filterContentSelect"></PostCardWrapper>

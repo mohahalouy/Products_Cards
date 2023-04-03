@@ -23,6 +23,7 @@ export default {
   props: {
     filterContentSelect: String
   },
+  emits: ['update:filterContentSelect'],
   async setup(props, {emit}) {
     const categories = ref([])
     const loadCategories = async () => {

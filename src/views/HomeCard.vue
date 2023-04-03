@@ -1,4 +1,5 @@
 <template>
+  <p style="color: #222222">{{filterContentSelect}}</p>
   <section class="homeCard">
     <FilterCategories class="filterContainer" v-model:filterContentSelect="filterContentSelect"></FilterCategories>
     <PostCardWrapper class="productCardContainer" :filterContentSelect="filterContentSelect"></PostCardWrapper>
@@ -25,15 +26,11 @@ export default {
 </script>
 
 <style>
-@import "https://fonts.googleapis.com/css?family=Poppins:200,300.400,500,600,700,800,900&display=swap";
 
-@font-face {
-  font-family: Poppins;
-  src: url("https://fonts.googleapis.com/css?family=Poppins:200,300.400,500,600,700,800,900&display=swap");
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 .homeCard {
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;

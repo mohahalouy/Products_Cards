@@ -1,7 +1,22 @@
-# Vue 3 + Vite
+# DEMO:
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+https://products-card-mohamed.netlify.app/
 
-## Recommended IDE Setup
+### Project setup
+```
+npm install
+```
+### Compiles and minifies for production
+```
+npm run dev
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+###La app funciona de la siguiente manera:
+```
+Cuando se cargan los componentes, la aplicación realiza llamadas a la API para recibir los datos de las categorías y productos. En caso de error, se muestra un mensaje de error al usuario.
+
+No veo la necesidad de usar un gestor de datos en esta aplicación, ya que he implementado una forma de pasar los datos necesarios entre el componente padre e hijos.
+
+Las bibliotecas utilizadas son AOS para animaciones de productos y sweetAlert2 para mostrar mensajes de error.
+```
